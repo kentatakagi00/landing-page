@@ -1,36 +1,57 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useInView } from "motion/react";
-import { useRef } from "react";
+import { Mail, ArrowRight } from "lucide-react";
 
 export default function CTA() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
   return (
-    <section className="py-24 bg-primary text-primary-content">
-      <div className="container mx-auto px-4 max-w-4xl text-center">
+    <section id="contact" className="relative overflow-hidden bg-[#0f0f1a] py-28">
+      {/* Glow orb behind content */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        <div
+          className="h-[500px] w-[900px] rounded-full opacity-[0.12] blur-[160px]"
+          style={{
+            background:
+              "radial-gradient(circle, #6366f1 0%, #8b5cf6 40%, transparent 70%)",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
         <motion.div
-          ref={ref}
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Ready to get started?
-          </h2>
-          <p className="text-primary-content/80 text-lg mb-10 max-w-2xl mx-auto">
-            Join thousands of teams already using MyProduct to ship faster and smarter. Start free, no credit card required.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#" className="btn btn-secondary btn-lg px-10">
-              Start for free
-            </a>
-            <a href="#" className="btn btn-outline btn-lg px-10 text-primary-content border-primary-content hover:bg-primary-content hover:text-primary">
-              Talk to sales
-            </a>
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 text-sm text-indigo-300">
+            Contact
           </div>
+
+          <h2 className="mb-5 text-4xl font-bold leading-snug text-white md:text-5xl">
+            Vertiport整備計画、
+            <br />
+            周辺住民との合意形成に
+            <span className="block bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+              VP Studioをご活用ください
+            </span>
+          </h2>
+
+          <p className="mx-auto mb-12 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">
+            デベロッパー・運航事業者・国/自治体・建設コンサルタントの皆様からのご相談をお待ちしています
+          </p>
+
+          {/* CTA button with glow — href は実際の連絡先に差し替えてください */}
+          <motion.a
+            href="mailto:contact@soramo.jp"
+            className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-10 py-4 text-base font-semibold text-white shadow-[0_0_40px_rgba(99,102,241,0.4)] transition-shadow duration-300 hover:shadow-[0_0_64px_rgba(99,102,241,0.65)]"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <Mail className="h-5 w-5" />
+            お問い合わせ
+            <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+          </motion.a>
         </motion.div>
       </div>
     </section>

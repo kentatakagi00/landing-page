@@ -1,29 +1,49 @@
 "use client";
 
 import { motion } from "motion/react";
+import { Zap } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <motion.div
-      className="navbar bg-base-100/80 backdrop-blur-md fixed top-0 z-50 border-b border-base-200"
+    <motion.header
+      className="fixed top-0 z-50 w-full"
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="navbar-start">
-        <a className="btn btn-ghost text-xl font-bold text-primary">MyProduct</a>
+      <div className="mx-auto max-w-7xl px-6 py-4">
+        <div className="flex items-center justify-between rounded-2xl border border-white/[0.08] bg-white/[0.04] px-6 py-3 backdrop-blur-xl">
+          {/* Logo */}
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-500/20">
+              <Zap className="h-4 w-4 text-indigo-400" />
+            </div>
+            <span className="text-sm font-bold text-white">VP Studio</span>
+            <span className="hidden text-xs text-slate-500 sm:inline">by SORAMO</span>
+          </div>
+
+          {/* Nav links */}
+          <nav className="hidden items-center gap-8 md:flex">
+            <a href="#challenges" className="text-sm text-slate-400 transition-colors hover:text-white">
+              課題
+            </a>
+            <a href="#features" className="text-sm text-slate-400 transition-colors hover:text-white">
+              機能
+            </a>
+            <a href="#achievements" className="text-sm text-slate-400 transition-colors hover:text-white">
+              実績
+            </a>
+          </nav>
+
+          {/* CTA */}
+          <a
+            href="#contact"
+            className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
+          >
+            お問い合わせ
+          </a>
+        </div>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 gap-1">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-      </div>
-      <div className="navbar-end gap-2">
-        <a className="btn btn-ghost btn-sm">Log in</a>
-        <a className="btn btn-primary btn-sm">Get started</a>
-      </div>
-    </motion.div>
+    </motion.header>
   );
 }

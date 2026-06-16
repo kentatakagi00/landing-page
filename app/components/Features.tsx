@@ -1,90 +1,139 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useInView } from "motion/react";
-import { useRef } from "react";
+import {
+  Search,
+  Shield,
+  Navigation,
+  Activity,
+  FileText,
+  type LucideIcon,
+} from "lucide-react";
 
-const features = [
+type Feature = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  iconColor: string;
+  iconBg: string;
+  border: string;
+  hoverGlow: string;
+};
+
+const features: Feature[] = [
   {
-    icon: "⚡",
-    title: "Lightning Fast",
-    description: "Deploy in seconds, not hours. Our optimized pipeline ensures your code ships without delays.",
+    icon: Search,
+    title: "適地検索",
+    description:
+      "バーティポート整備指針に沿って、Vertiportを設置可能な土地・屋上を検索",
+    iconColor: "text-indigo-400",
+    iconBg: "bg-indigo-500/10",
+    border: "border-indigo-500/20",
+    hoverGlow: "hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]",
   },
   {
-    icon: "🔒",
-    title: "Secure by Default",
-    description: "End-to-end encryption and zero-trust architecture keep your data safe at every layer.",
+    icon: Shield,
+    title: "安全シミュレーション",
+    description:
+      "進入表面モデルと都市モデルとの接触をシミュレーションし、安全性を評価",
+    iconColor: "text-violet-400",
+    iconBg: "bg-violet-500/10",
+    border: "border-violet-500/20",
+    hoverGlow: "hover:shadow-[0_0_32px_rgba(139,92,246,0.25)]",
   },
   {
-    icon: "📊",
-    title: "Real-time Analytics",
-    description: "Monitor performance, track usage, and make data-driven decisions with live dashboards.",
+    icon: Navigation,
+    title: "経路生成",
+    description:
+      "建物や地形などの障害物を回避し、目的地までの最短経路を自動検索",
+    iconColor: "text-cyan-400",
+    iconBg: "bg-cyan-500/10",
+    border: "border-cyan-500/20",
+    hoverGlow: "hover:shadow-[0_0_32px_rgba(34,211,238,0.25)]",
   },
   {
-    icon: "🤝",
-    title: "Team Collaboration",
-    description: "Invite teammates, manage roles, and collaborate seamlessly across projects and environments.",
+    icon: Activity,
+    title: "騒音シミュレーション",
+    description:
+      "距離による減衰、空気による減衰を考慮した騒音レベルをシミュレーション",
+    iconColor: "text-emerald-400",
+    iconBg: "bg-emerald-500/10",
+    border: "border-emerald-500/20",
+    hoverGlow: "hover:shadow-[0_0_32px_rgba(52,211,153,0.25)]",
   },
   {
-    icon: "🔌",
-    title: "200+ Integrations",
-    description: "Connect with your favorite tools — GitHub, Slack, Jira, and hundreds more.",
-  },
-  {
-    icon: "♾️",
-    title: "Infinitely Scalable",
-    description: "Start small and grow to millions of users without touching your infrastructure.",
+    icon: FileText,
+    title: "レポート生成",
+    description:
+      "4つのシミュレーション結果をインプットに、候補地の評価レポートを自動生成",
+    iconColor: "text-amber-400",
+    iconBg: "bg-amber-500/10",
+    border: "border-amber-500/20",
+    hoverGlow: "hover:shadow-[0_0_32px_rgba(251,191,36,0.25)]",
   },
 ];
 
-function FeatureCard({ feature, index }: { feature: typeof features[0]; index: number }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
+function FeatureCard({
+  feature,
+  delay,
+}: {
+  feature: Feature;
+  delay: number;
+}) {
+  const Icon = feature.icon;
   return (
     <motion.div
-      ref={ref}
-      className="card bg-base-100 border border-base-200 hover:border-primary/40 hover:shadow-lg transition-all duration-300"
+      className={`rounded-2xl border ${feature.border} bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:scale-[1.025] hover:bg-white/[0.07] ${feature.hoverGlow}`}
       initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.5, delay }}
     >
-      <div className="card-body">
-        <div className="text-4xl mb-2">{feature.icon}</div>
-        <h3 className="card-title text-lg">{feature.title}</h3>
-        <p className="text-base-content/70 text-sm leading-relaxed">{feature.description}</p>
+      <div className={`mb-4 w-fit rounded-xl ${feature.iconBg} p-3`}>
+        <Icon className={`h-7 w-7 ${feature.iconColor}`} />
       </div>
+      <h3 className="mb-2 text-lg font-semibold text-white">{feature.title}</h3>
+      <p className="text-sm leading-relaxed text-slate-400">{feature.description}</p>
     </motion.div>
   );
 }
 
 export default function Features() {
-  const titleRef = useRef(null);
-  const titleInView = useInView(titleRef, { once: true, margin: "-50px" });
-
   return (
-    <section id="features" className="py-24 bg-base-200/50">
-      <div className="container mx-auto px-4 max-w-6xl">
+    <section id="features" className="bg-[#0f0f1a] py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Section heading */}
         <motion.div
-          ref={titleRef}
-          className="text-center mb-16"
+          className="mb-16 text-center"
           initial={{ opacity: 0, y: 30 }}
-          animate={titleInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6 }}
         >
-          <div className="badge badge-primary badge-outline mb-4 px-4 py-2">Features</div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Everything you need to{" "}
-            <span className="text-primary">succeed</span>
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 text-sm text-indigo-300">
+            機能
+          </div>
+          <h2 className="text-4xl font-bold text-white md:text-5xl">
+            4つのシミュレーションで
+            <span className="block bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+              候補地を多角的に評価
+            </span>
           </h2>
-          <p className="text-base-content/70 text-lg max-w-2xl mx-auto">
-            A complete toolkit designed to eliminate friction and help your team focus on what matters most.
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <FeatureCard key={feature.title} feature={feature} index={index} />
+        {/* Row 1: 3 cards */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {features.slice(0, 3).map((f, i) => (
+            <FeatureCard key={f.title} feature={f} delay={i * 0.1} />
+          ))}
+        </div>
+
+        {/* Row 2: 2 cards centered — PC: 1/3 width each, Mobile: full width */}
+        <div className="mt-6 flex flex-col gap-6 md:flex-row md:justify-center">
+          {features.slice(3).map((f, i) => (
+            <div key={f.title} className="w-full md:w-1/3">
+              <FeatureCard feature={f} delay={(i + 3) * 0.1} />
+            </div>
           ))}
         </div>
       </div>
