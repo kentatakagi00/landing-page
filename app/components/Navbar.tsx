@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Zap } from "lucide-react";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
@@ -13,13 +13,32 @@ export default function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="flex items-center justify-between rounded-2xl border border-white/[0.08] bg-white/[0.04] px-6 py-3 backdrop-blur-xl">
-          {/* Logo */}
-          <div className="flex items-center gap-2.5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-500/20">
-              <Zap className="h-4 w-4 text-indigo-400" />
+          {/* ---- Logos ----
+              ロゴが暗い色で見えない場合は各Imageを
+              <div className="bg-white rounded-lg px-3 py-1.5">...</div> で囲んでください
+          ---- */}
+          <div className="flex items-center gap-4">
+            {/* VP Studio ロゴ (メイン) — /public/images/logo-vpstudio.png */}
+            <Image
+              src="/images/logo-vpstudio.png"
+              alt="VP Studio"
+              width={1585}
+              height={270}
+              className="h-7 w-auto"
+              priority
+            />
+            <span className="h-5 w-px bg-white/20" aria-hidden="true" />
+            {/* SORAMO ロゴ (補助) — /public/images/logo-soramo.png */}
+            <div className="hidden items-center gap-1.5 sm:flex">
+              <span className="text-xs text-slate-500">運営:</span>
+              <Image
+                src="/images/logo-soramo.png"
+                alt="SORAMO"
+                width={1224}
+                height={226}
+                className="h-5 w-auto"
+              />
             </div>
-            <span className="text-sm font-bold text-white">VP Studio</span>
-            <span className="hidden text-xs text-slate-500 sm:inline">by SORAMO</span>
           </div>
 
           {/* Nav links */}
