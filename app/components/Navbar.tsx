@@ -47,7 +47,10 @@ export default function Navbar() {
               課題
             </a>
             <a href="#features" className="text-sm text-slate-400 transition-colors hover:text-white">
-              機能
+              機能1
+            </a>
+            <a href="#report" className="text-sm text-slate-400 transition-colors hover:text-white">
+              機能2
             </a>
           </nav>
 

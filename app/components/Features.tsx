@@ -148,7 +148,8 @@ export default function Features() {
 
         {/* ---- Section 2: Report generation ---- */}
         <motion.div
-          className="mb-16 text-center"
+          id="report"
+          className="mb-16 scroll-mt-24 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}

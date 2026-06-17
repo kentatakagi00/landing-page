@@ -38,7 +38,7 @@ export default function CTA() {
           </h2>
 
           <motion.a
-            href="mailto:contact@soramo.jp"
+            href="mailto:soramo.vp@gmail.com"
             className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 px-10 py-4 text-base font-semibold text-white shadow-[0_0_40px_rgba(52,211,153,0.4)] transition-shadow duration-300 hover:shadow-[0_0_64px_rgba(52,211,153,0.65)]"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
