@@ -6,13 +6,13 @@ import { Mail, ArrowRight } from "lucide-react";
 export default function CTA() {
   return (
     <section id="contact" className="relative overflow-hidden bg-[#0f0f1a] py-28">
-      {/* Glow orb behind content */}
+      {/* Glow orb */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <div
           className="h-[500px] w-[900px] rounded-full opacity-[0.12] blur-[160px]"
           style={{
             background:
-              "radial-gradient(circle, #6366f1 0%, #8b5cf6 40%, transparent 70%)",
+              "radial-gradient(circle, #34d399 0%, #10b981 40%, transparent 70%)",
           }}
         />
       </div>
@@ -24,33 +24,28 @@ export default function CTA() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7 }}
         >
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 text-sm text-indigo-300">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-sm text-emerald-300">
             Contact
           </div>
 
-          <h2 className="mb-5 text-4xl font-bold leading-snug text-white md:text-5xl">
+          <h2 className="mb-10 text-4xl font-bold leading-snug text-white md:text-5xl">
             Vertiport整備計画、
             <br />
             周辺住民との合意形成に
-            <span className="block bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
               VP Studioをご活用ください
             </span>
           </h2>
 
-          <p className="mx-auto mb-12 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">
-            デベロッパー・運航事業者・国/自治体・建設コンサルタントの皆様からのご相談をお待ちしています
-          </p>
-
-          {/* CTA button with glow — href は実際の連絡先に差し替えてください */}
           <motion.a
             href="mailto:contact@soramo.jp"
-            className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-10 py-4 text-base font-semibold text-white shadow-[0_0_40px_rgba(99,102,241,0.4)] transition-shadow duration-300 hover:shadow-[0_0_64px_rgba(99,102,241,0.65)]"
+            className="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 px-10 py-4 text-base font-semibold text-white shadow-[0_0_40px_rgba(52,211,153,0.4)] transition-shadow duration-300 hover:shadow-[0_0_64px_rgba(52,211,153,0.65)]"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
           >
             <Mail className="h-5 w-5" />
             お問い合わせ
-            <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+            <ArrowRight className="h-4 w-4" />
           </motion.a>
         </motion.div>
       </div>

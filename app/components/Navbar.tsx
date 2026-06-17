@@ -30,7 +30,7 @@ export default function Navbar() {
             <span className="h-5 w-px bg-white/20" aria-hidden="true" />
             {/* SORAMO ロゴ (補助) — /public/images/logo-soramo.png */}
             <div className="hidden items-center gap-1.5 sm:flex">
-              <span className="text-xs text-slate-500">運営:</span>
+              <span className="text-xs text-slate-500">by</span>
               <Image
                 src="/images/logo-soramo.png"
                 alt="SORAMO"
@@ -49,15 +49,12 @@ export default function Navbar() {
             <a href="#features" className="text-sm text-slate-400 transition-colors hover:text-white">
               機能
             </a>
-            <a href="#achievements" className="text-sm text-slate-400 transition-colors hover:text-white">
-              実績
-            </a>
           </nav>
 
           {/* CTA */}
           <a
             href="#contact"
-            className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
+            className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-emerald-500"
           >
             お問い合わせ
           </a>

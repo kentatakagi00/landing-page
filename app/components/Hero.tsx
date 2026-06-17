@@ -7,15 +7,31 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden bg-[#0a0a0f]">
+      {/* ---- Background: hero-screenshot with gradient overlay ---- */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        <Image
+          src="/images/hero-screenshot.png"
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to right, rgba(10,10,15,0.85), rgba(10,10,15,0.45))" }}
+        />
+      </div>
+
       {/* ---- Animated gradient blobs ---- */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
           className="blob-1 absolute -left-48 -top-48 h-[700px] w-[700px] rounded-full opacity-25 blur-[130px]"
-          style={{ background: "radial-gradient(circle, #6366f1, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #10b981, transparent 70%)" }}
         />
         <div
           className="blob-2 absolute right-0 top-1/4 h-[550px] w-[550px] rounded-full opacity-20 blur-[110px]"
-          style={{ background: "radial-gradient(circle, #8b5cf6, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #34d399, transparent 70%)" }}
         />
         <div
           className="blob-3 absolute bottom-0 left-1/3 h-[450px] w-[450px] rounded-full opacity-15 blur-[90px]"
@@ -35,36 +51,32 @@ export default function Hero() {
 
       {/* ---- 2-column content ---- */}
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-24 pt-32">
-        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+        <div className="grid grid-cols-1 items-center gap-12 md:[grid-template-columns:0.8fr_1.2fr]">
 
           {/* Left: text */}
           <div className="text-center md:text-left">
+            {/* VP Studio logo */}
             <motion.div
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 text-sm text-indigo-300"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-indigo-400" />
-              SORAMO が開発するWebアプリ
-            </motion.div>
-
-            <motion.h1
-              className="mb-5 text-6xl font-extrabold tracking-tight md:text-7xl"
+              className="mb-10 flex justify-center md:justify-start"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">
-                VP Studio
-              </span>
-            </motion.h1>
+              <Image
+                src="/images/logo-vpstudio.png"
+                alt="VP Studio"
+                width={1585}
+                height={270}
+                className="h-20 w-auto"
+                priority
+              />
+            </motion.div>
 
             <motion.p
               className="mb-5 text-xl font-semibold leading-snug text-slate-200 md:text-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
             >
               空飛ぶクルマの離着陸場候補を、
               <br />
@@ -75,21 +87,20 @@ export default function Hero() {
               className="mb-10 text-sm leading-relaxed text-slate-400 md:text-base"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
             >
-              バーティポート整備指針に基づく用地選定から、安全・経路・騒音シミュレーション、
-              評価レポート生成までを一気通貫で支援します。
+              用地選定から安全・経路・騒音シミュレーション、評価レポート生成までを一気通貫で支援します。
             </motion.p>
 
             <motion.div
               className="flex flex-col items-center justify-center gap-4 sm:flex-row md:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.55 }}
             >
               <a
                 href="#contact"
-                className="rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_30px_rgba(99,102,241,0.4)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_50px_rgba(99,102,241,0.6)]"
+                className="rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_30px_rgba(52,211,153,0.4)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_50px_rgba(52,211,153,0.6)]"
               >
                 お問い合わせ
               </a>
@@ -100,36 +111,56 @@ export default function Hero() {
                 機能を見る
               </a>
             </motion.div>
+
+            {/* Award badges */}
+            <motion.div
+              className="mt-7 flex items-center justify-center gap-7 md:justify-start"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              <Image
+                src="/images/award-1.png"
+                alt="PLATEAU AWARD 2025 グランプリ"
+                width={1140}
+                height={680}
+                className="h-24 w-auto"
+              />
+              <Image
+                src="/images/award-2.png"
+                alt="アーバンデータチャレンジ 2025 土木学会賞"
+                width={1150}
+                height={682}
+                className="h-24 w-auto"
+              />
+            </motion.div>
           </div>
 
-          {/* Right: hero screenshot — /public/images/hero-screenshot.png (2304×1296) */}
+          {/* Right: feature-1.png in glassmorphism frame */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
           >
-            {/* Float animation wrapper */}
             <motion.div
               animate={{ y: [0, -12, 0] }}
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
               className="relative"
             >
-              {/* Glow halo behind the image */}
+              {/* Glow halo */}
               <div
                 className="absolute -inset-2 rounded-3xl opacity-40 blur-2xl"
-                style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)" }}
+                style={{ background: "linear-gradient(135deg, #10b981, #34d399)" }}
               />
-
-              {/* Glassmorphism frame */}
-              <div className="relative overflow-hidden rounded-2xl border border-white/[0.15] shadow-[0_0_60px_rgba(99,102,241,0.2),0_30px_60px_rgba(0,0,0,0.6)]">
-                {/* Subtle glass overlay */}
+              {/* Frame */}
+              <div className="relative overflow-hidden rounded-2xl border border-white/[0.15] shadow-[0_0_60px_rgba(52,211,153,0.2),0_30px_60px_rgba(0,0,0,0.6)]">
                 <div className="pointer-events-none absolute inset-0 z-10 rounded-2xl bg-gradient-to-br from-white/[0.04] to-transparent" />
                 <Image
-                  src="/images/hero-screenshot.png"
-                  alt="VP Studio アプリのスクリーンショット"
-                  width={2304}
-                  height={1296}
-                  className="w-full h-auto"
+                  src="/images/feature-1.png"
+                  alt="VP Studio 適地検索機能"
+                  width={851}
+                  height={479}
+                  className="h-auto w-full"
                   priority
                 />
               </div>
@@ -143,7 +174,7 @@ export default function Hero() {
         className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1.5 text-slate-600"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.6, duration: 1 }}
+        transition={{ delay: 1.4, duration: 1 }}
       >
         <span className="text-xs tracking-[0.2em] uppercase">Scroll</span>
         <motion.div
