@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-[#0a0a0f]">
+    <section id="top" className="relative flex min-h-screen items-center overflow-hidden bg-[#0a0a0f]">
       {/* ---- Background: hero-screenshot with gradient overlay ---- */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <Image
@@ -67,7 +67,7 @@ export default function Hero() {
                 alt="VP Studio"
                 width={1585}
                 height={270}
-                className="h-20 w-auto"
+                className="h-16 w-auto shrink-0 sm:h-20"
                 priority
               />
             </motion.div>

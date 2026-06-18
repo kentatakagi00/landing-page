@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "VP Studio — SORAMO",
   description:
     "空飛ぶクルマの離着陸場候補をスピーディーに選定・レポートするWebアプリ。バーティポート整備指針に基づく用地選定から評価レポート生成まで一気通貫で支援します。",
+  icons: { icon: "/favicon.png" },
 };
 
 export default function RootLayout({
