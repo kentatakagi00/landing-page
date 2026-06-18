@@ -7,22 +7,6 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section id="top" className="relative flex min-h-screen items-center overflow-hidden bg-[#0a0a0f]">
-      {/* ---- Background: hero-screenshot with gradient overlay ---- */}
-      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        <Image
-          src="/images/hero-screenshot.png"
-          alt=""
-          fill
-          className="object-cover"
-          sizes="100vw"
-          priority
-        />
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, rgba(10,10,15,0.85), rgba(10,10,15,0.45))" }}
-        />
-      </div>
-
       {/* ---- Animated gradient blobs ---- */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
@@ -55,7 +39,6 @@ export default function Hero() {
 
           {/* Left: text */}
           <div className="text-center md:text-left">
-            {/* VP Studio logo */}
             <motion.div
               className="mb-10 flex justify-center md:justify-start"
               initial={{ opacity: 0, y: 30 }}
@@ -136,34 +119,33 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: feature-1.png in glassmorphism frame */}
+          {/* Right: hero screenshot — large, dramatic */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.9, delay: 0.4, ease: "easeOut" }}
+            className="relative"
           >
+            {/* Outer glow */}
+            <div
+              className="absolute -inset-6 rounded-3xl blur-3xl"
+              style={{ background: "radial-gradient(ellipse at center, rgba(52,211,153,0.3) 0%, rgba(34,211,238,0.1) 60%, transparent 80%)" }}
+            />
+            {/* Frame */}
             <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-              className="relative"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              className="relative overflow-hidden rounded-2xl border border-white/20 shadow-[0_0_80px_rgba(52,211,153,0.15),0_40px_80px_rgba(0,0,0,0.7)]"
             >
-              {/* Glow halo */}
-              <div
-                className="absolute -inset-2 rounded-3xl opacity-40 blur-2xl"
-                style={{ background: "linear-gradient(135deg, #10b981, #34d399)" }}
+              <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-br from-white/[0.05] to-transparent" />
+              <Image
+                src="/images/hero-screenshot.png"
+                alt="VP Studio アプリ画面"
+                width={2304}
+                height={1296}
+                className="h-auto w-full"
+                priority
               />
-              {/* Frame */}
-              <div className="relative overflow-hidden rounded-2xl border border-white/[0.15] shadow-[0_0_60px_rgba(52,211,153,0.2),0_30px_60px_rgba(0,0,0,0.6)]">
-                <div className="pointer-events-none absolute inset-0 z-10 rounded-2xl bg-gradient-to-br from-white/[0.04] to-transparent" />
-                <Image
-                  src="/images/feature-1.png"
-                  alt="VP Studio 適地検索機能"
-                  width={851}
-                  height={479}
-                  className="h-auto w-full"
-                  priority
-                />
-              </div>
             </motion.div>
           </motion.div>
         </div>
