@@ -107,15 +107,10 @@ function FeatureRow({ feature, index }: { feature: Feature; index: number }) {
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
     >
-      {/* Glow */}
-      <div
-        className="absolute -inset-4 rounded-3xl blur-2xl"
-        style={{ background: `radial-gradient(ellipse at center, ${feature.glowRgba} 0%, transparent 70%)` }}
-      />
       {/* Screenshot */}
       <div
         className="relative overflow-hidden rounded-2xl"
-        style={{ boxShadow: `0 0 60px ${feature.glowRgba}, 0 32px 64px rgba(0,0,0,0.6)` }}
+        style={{ boxShadow: "0 32px 64px rgba(0,0,0,0.6)" }}
       >
         <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-br from-white/[0.04] to-transparent" />
         <Image
@@ -225,12 +220,8 @@ export default function Features() {
 
             <div className="relative">
               <div
-                className="absolute -inset-6 rounded-3xl blur-3xl"
-                style={{ background: "radial-gradient(ellipse at center, rgba(34,211,238,0.2) 0%, transparent 70%)" }}
-              />
-              <div
                 className="relative overflow-hidden rounded-2xl"
-                style={{ boxShadow: "0 0 60px rgba(34,211,238,0.2), 0 32px 64px rgba(0,0,0,0.6)" }}
+                style={{ boxShadow: "0 32px 64px rgba(0,0,0,0.6)" }}
               >
                 <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-br from-white/[0.04] to-transparent" />
                 <Image
