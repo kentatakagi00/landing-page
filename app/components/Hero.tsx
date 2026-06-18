@@ -45,14 +45,16 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <Image
-                src="/images/logo-vpstudio.png"
-                alt="VP Studio"
-                width={1585}
-                height={270}
-                className="h-16 w-auto shrink-0 sm:h-20"
-                priority
-              />
+              <div className="w-[min(88vw,32rem)] shrink-0 md:w-[min(44vw,32rem)]">
+                <Image
+                  src="/images/logo-vpstudio.png"
+                  alt="VP Studio"
+                  width={1585}
+                  height={270}
+                  className="h-auto w-full"
+                  priority
+                />
+              </div>
             </motion.div>
 
             <motion.p
