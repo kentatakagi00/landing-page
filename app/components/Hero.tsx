@@ -35,7 +35,7 @@ export default function Hero() {
 
       {/* ---- 2-column content ---- */}
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-24 pt-32">
-        <div className="grid grid-cols-1 items-center gap-12 md:[grid-template-columns:0.7fr_1.3fr]">
+        <div className="grid grid-cols-1 items-center gap-12 md:gap-8 md:[grid-template-columns:0.7fr_1.3fr]">
 
           {/* Left: text */}
           <div className="text-center md:text-left">
@@ -126,13 +126,13 @@ export default function Hero() {
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.4, ease: "easeOut" }}
-            className="relative"
+            className="relative md:-mr-10 lg:-mr-16"
           >
             {/* Screenshot */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              className="relative overflow-hidden rounded-2xl shadow-[0_40px_80px_rgba(0,0,0,0.7)]"
+              className="relative overflow-hidden rounded-2xl shadow-[0_40px_80px_rgba(0,0,0,0.7)] md:ml-auto md:w-[125%]"
             >
               <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-br from-white/[0.05] to-transparent" />
               <Image
