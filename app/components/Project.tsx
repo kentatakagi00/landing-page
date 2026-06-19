@@ -8,26 +8,26 @@ const strengths = [
   {
     icon: BarChart2,
     title: "航空/都市データの分析力",
-    iconColor: "text-emerald-400",
-    iconBg: "bg-emerald-400/10",
-    border: "border-emerald-400/20",
-    glow: "hover:shadow-[0_0_24px_rgba(52,211,153,0.2)]",
+    iconColor: "text-blue-400",
+    iconBg: "bg-blue-400/10",
+    border: "border-blue-400/20",
+    glow: "hover:shadow-[0_0_24px_rgba(96,165,250,0.2)]",
   },
   {
     icon: Layout,
     title: "UI/UXを重視したアプリ開発力",
-    iconColor: "text-cyan-400",
-    iconBg: "bg-cyan-500/10",
-    border: "border-cyan-500/20",
-    glow: "hover:shadow-[0_0_24px_rgba(34,211,238,0.2)]",
+    iconColor: "text-indigo-400",
+    iconBg: "bg-indigo-400/10",
+    border: "border-indigo-400/20",
+    glow: "hover:shadow-[0_0_24px_rgba(129,140,248,0.2)]",
   },
   {
     icon: Zap,
     title: "高速にアイデアを形にする実行力",
-    iconColor: "text-emerald-300",
-    iconBg: "bg-emerald-500/10",
-    border: "border-emerald-500/20",
-    glow: "hover:shadow-[0_0_24px_rgba(16,185,129,0.2)]",
+    iconColor: "text-violet-400",
+    iconBg: "bg-violet-400/10",
+    border: "border-violet-400/20",
+    glow: "hover:shadow-[0_0_24px_rgba(167,139,250,0.2)]",
   },
 ];
 
@@ -45,7 +45,7 @@ const details = [
 
 export default function Project() {
   return (
-    <section id="project" className="bg-[#0f0f1a] py-24">
+    <section id="project" className="bg-[#0f0f1a] py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
 
         {/* Section heading */}
@@ -56,7 +56,7 @@ export default function Project() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6 }}
         >
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-sm text-emerald-300">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm text-blue-300">
             Project
           </div>
 
@@ -73,7 +73,7 @@ export default function Project() {
 
           <h2 className="text-4xl font-bold text-white md:text-5xl">
             デジタル技術で
-            <span className="block bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
               ドローン/eVTOLの普及を支えます。
             </span>
           </h2>
@@ -122,7 +122,7 @@ export default function Project() {
                   {d.isEmail ? (
                     <a
                       href={`mailto:${d.value}`}
-                      className="text-emerald-400 transition-colors hover:text-emerald-300"
+                      className="text-blue-400 transition-colors hover:text-blue-300"
                     >
                       {d.value}
                     </a>
