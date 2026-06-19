@@ -45,7 +45,7 @@ const details = [
 
 export default function Project() {
   return (
-    <section id="project" className="bg-[#0a0a0f] py-24">
+    <section id="project" className="bg-[#0f0f1a] py-24">
       <div className="mx-auto max-w-7xl px-6">
 
         {/* Section heading */}
