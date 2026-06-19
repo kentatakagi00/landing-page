@@ -8,6 +8,7 @@ import {
   Navigation,
   Activity,
   FileText,
+  ArrowRight,
   type LucideIcon,
 } from "lucide-react";
 
@@ -17,9 +18,9 @@ type Feature = {
   title: string;
   description: string;
   imageSrc: string;
-  accent: string;          // Tailwind text color class
-  accentBg: string;        // Tailwind bg class
-  glowRgba: string;        // rgba for box-shadow / filter
+  accent: string;
+  accentBg: string;
+  glowRgba: string;
 };
 
 const simFeatures: Feature[] = [
@@ -107,7 +108,6 @@ function FeatureRow({ feature, index }: { feature: Feature; index: number }) {
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
     >
-      {/* Screenshot */}
       <div
         className="relative overflow-hidden rounded-2xl"
         style={{ boxShadow: "0 32px 64px rgba(0,0,0,0.6)" }}
@@ -138,7 +138,6 @@ function FeatureRow({ feature, index }: { feature: Feature; index: number }) {
         </>
       ) : (
         <>
-          {/* Mobile: text first. Desktop: image col-1 (3fr), text col-2 (2fr). */}
           <div className="md:order-2">{textBlock}</div>
           <div className="md:order-1">{imageBlock}</div>
         </>
@@ -149,9 +148,9 @@ function FeatureRow({ feature, index }: { feature: Feature; index: number }) {
 
 export default function Features() {
   return (
-    <section id="features" className="bg-[#0f0f1a]">
+    <section id="features" className="scroll-mt-24 bg-[#0f0f1a]">
 
-      {/* ---- Section 1 heading ---- */}
+      {/* ---- Section heading ---- */}
       <div className="mx-auto max-w-7xl px-6 pt-24">
         <motion.div
           className="mb-4 text-center"
@@ -161,17 +160,17 @@ export default function Features() {
           transition={{ duration: 0.6 }}
         >
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-sm text-emerald-300">
-            機能1
+            機能
           </div>
           <h2 className="text-4xl font-bold text-white md:text-5xl">
-            4つのシミュレーションで
+            5つの機能で、選定からレポートまで
             <span className="block bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-              候補地を多角的に評価
+              一気通貫
             </span>
           </h2>
         </motion.div>
 
-        {/* Alternating feature rows */}
+        {/* Features 01-04: alternating rows */}
         <div className="divide-y divide-white/[0.05]">
           {simFeatures.map((f, i) => (
             <FeatureRow key={f.title} feature={f} index={i} />
@@ -179,64 +178,82 @@ export default function Features() {
         </div>
       </div>
 
-      {/* ---- Section 2: Report generation ---- */}
-      <div className="bg-[#0a0a0f] py-24">
+      {/* ---- Feature 05: Report generation — full-width wide card ---- */}
+      <div id="report" className="mt-8 scroll-mt-24 bg-[#0a0a0f] py-20">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
-            id="report"
-            className="mb-16 scroll-mt-24 text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-sm text-emerald-300">
-              機能2
-            </div>
-            <h2 className="text-4xl font-bold text-white md:text-5xl">
-              シミュレーション結果から
-              <span className="block bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-                評価レポートを自動生成
-              </span>
-            </h2>
-          </motion.div>
-
-          {/* Large centered screenshot */}
-          <motion.div
-            className="mx-auto max-w-4xl"
+            className="overflow-hidden rounded-3xl border border-white/[0.1] bg-white/[0.03] backdrop-blur-sm"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
           >
-            <div className="mb-8 flex items-start gap-4 text-center md:text-left">
-              <div className="hidden shrink-0 rounded-xl bg-cyan-500/10 p-3 md:block">
-                <FileText className="h-6 w-6 text-cyan-400" />
+            {/* Card header */}
+            <div className="px-8 pt-10 pb-8 md:px-12">
+              <div className="mb-4 flex items-center gap-3">
+                <span className="text-xs font-bold tracking-[0.2em] text-cyan-400">05</span>
+                <span className="h-px w-8 bg-white/20" />
+                <div className="rounded-xl bg-cyan-500/10 p-2.5">
+                  <FileText className="h-5 w-5 text-cyan-400" />
+                </div>
               </div>
-              <p className="text-base leading-relaxed text-slate-400">
-                4つのシミュレーション結果をもとに、候補地ごとの評価レポートを自動生成。AIによる編集アシスタントで内容の調整も可能です。
-              </p>
+              <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400/70">
+                    STEP 5
+                  </p>
+                  <h3 className="text-3xl font-bold text-white md:text-4xl">
+                    すべての結果を評価レポートに集約
+                  </h3>
+                </div>
+                <p className="max-w-md text-sm leading-relaxed text-slate-400 md:text-right">
+                  4つのシミュレーション結果をもとに、候補地ごとの評価レポートを自動生成。AIによる編集アシスタントで内容の調整も可能です。
+                </p>
+              </div>
             </div>
 
-            <div className="relative">
-              <div
-                className="relative overflow-hidden rounded-2xl"
-                style={{ boxShadow: "0 32px 64px rgba(0,0,0,0.6)" }}
-              >
-                <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-br from-white/[0.04] to-transparent" />
-                <Image
-                  src="/images/feature-5.png"
-                  alt="評価レポート生成の画面"
-                  width={851}
-                  height={479}
-                  className="h-auto w-full"
-                  sizes="(max-width: 768px) 100vw, 896px"
-                />
-              </div>
+            {/* Full-width screenshot */}
+            <div
+              className="relative overflow-hidden"
+              style={{ boxShadow: "inset 0 8px 32px rgba(0,0,0,0.4)" }}
+            >
+              <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-black/20 to-transparent" />
+              <Image
+                src="/images/feature-5.png"
+                alt="評価レポート生成の画面"
+                width={851}
+                height={479}
+                className="h-auto w-full"
+                sizes="100vw"
+              />
             </div>
           </motion.div>
         </div>
       </div>
+
+      {/* ---- Sub-CTA ---- */}
+      <motion.div
+        className="py-16"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="mx-auto max-w-xl px-6 text-center">
+          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] px-8 py-10 backdrop-blur-sm">
+            <p className="mb-6 text-base text-slate-300 md:text-lg">
+              VP&nbsp;Studioについて詳しく知りたい方はこちら
+            </p>
+            <a
+              href="mailto:soramo.vp@gmail.com"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_30px_rgba(52,211,153,0.35)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_50px_rgba(52,211,153,0.55)]"
+            >
+              お問い合わせ
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </motion.div>
 
     </section>
   );
