@@ -4,22 +4,28 @@ import { motion } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
+const TARGET_BADGES = [
+  "バーティポート事業者",
+  "自治体・都市計画担当者",
+  "建設・不動産事業者",
+];
+
 export default function Hero() {
   return (
     <section id="top" className="relative flex min-h-screen items-center overflow-hidden bg-[#0a0a0f]">
       {/* ---- Animated gradient blobs ---- */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
-          className="blob-1 absolute -left-48 -top-48 h-[700px] w-[700px] rounded-full opacity-25 blur-[130px]"
-          style={{ background: "radial-gradient(circle, #10b981, transparent 70%)" }}
+          className="absolute -left-48 -top-48 h-[700px] w-[700px] rounded-full opacity-20 blur-[130px]"
+          style={{ background: "radial-gradient(circle, #6366f1, transparent 70%)" }}
         />
         <div
-          className="blob-2 absolute right-0 top-1/4 h-[550px] w-[550px] rounded-full opacity-20 blur-[110px]"
-          style={{ background: "radial-gradient(circle, #34d399, transparent 70%)" }}
+          className="absolute right-0 top-1/4 h-[550px] w-[550px] rounded-full opacity-15 blur-[110px]"
+          style={{ background: "radial-gradient(circle, #8b5cf6, transparent 70%)" }}
         />
         <div
-          className="blob-3 absolute bottom-0 left-1/3 h-[450px] w-[450px] rounded-full opacity-15 blur-[90px]"
-          style={{ background: "radial-gradient(circle, #22d3ee, transparent 70%)" }}
+          className="absolute bottom-0 left-1/3 h-[450px] w-[450px] rounded-full opacity-10 blur-[90px]"
+          style={{ background: "radial-gradient(circle, #a78bfa, transparent 70%)" }}
         />
       </div>
 
@@ -39,6 +45,8 @@ export default function Hero() {
 
           {/* Left: text */}
           <div className="text-center md:text-left">
+
+            {/* 1. Logo + by SORAMO */}
             <motion.div
               className="mb-4 flex justify-center md:justify-start"
               initial={{ opacity: 0, y: 30 }}
@@ -57,7 +65,6 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* by SORAMO credit */}
             <motion.div
               className="mb-8 flex w-[min(88vw,32rem)] items-center justify-end gap-1.5 md:w-[min(44vw,32rem)]"
               initial={{ opacity: 0, y: 10 }}
@@ -74,8 +81,9 @@ export default function Hero() {
               />
             </motion.div>
 
+            {/* 2. キャッチコピー */}
             <motion.p
-              className="mb-5 text-xl font-semibold leading-snug text-slate-200 md:text-2xl"
+              className="mb-4 text-xl font-semibold leading-snug text-slate-200 md:text-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.35 }}
@@ -85,8 +93,9 @@ export default function Hero() {
               スピーディーに選定・レポート
             </motion.p>
 
+            {/* 3. サブコピー */}
             <motion.p
-              className="mb-10 text-sm leading-relaxed text-slate-400 md:text-base"
+              className="mb-6 text-sm leading-relaxed text-slate-400 md:text-base"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.45 }}
@@ -94,15 +103,33 @@ export default function Hero() {
               用地選定から安全・経路・騒音シミュレーション、評価レポート生成までを一気通貫で支援します。
             </motion.p>
 
+            {/* 4. 対象ユーザーバッジ */}
+            <motion.div
+              className="mb-8 flex flex-wrap justify-center gap-2 md:justify-start"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              {TARGET_BADGES.map((label) => (
+                <span
+                  key={label}
+                  className="rounded-full border border-white/[0.12] bg-white/[0.05] px-3 py-1 text-xs text-slate-300"
+                >
+                  {label}
+                </span>
+              ))}
+            </motion.div>
+
+            {/* 5. CTAボタン */}
             <motion.div
               className="flex flex-col items-center justify-center gap-4 sm:flex-row md:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.55 }}
+              transition={{ duration: 0.6, delay: 0.58 }}
             >
               <a
                 href="#contact"
-                className="rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_30px_rgba(52,211,153,0.4)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_50px_rgba(52,211,153,0.6)]"
+                className="rounded-xl bg-gradient-to-r from-blue-600 to-indigo-500 px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_30px_rgba(99,102,241,0.4)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_50px_rgba(99,102,241,0.6)]"
               >
                 お問い合わせ
               </a>
@@ -113,39 +140,15 @@ export default function Hero() {
                 機能を見る
               </a>
             </motion.div>
-
-            {/* Award badges */}
-            <motion.div
-              className="mt-7 flex items-center justify-center gap-7 md:justify-start"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-            >
-              <Image
-                src="/images/award-1.png"
-                alt="PLATEAU AWARD 2025 グランプリ"
-                width={1140}
-                height={680}
-                className="h-24 w-auto"
-              />
-              <Image
-                src="/images/award-2.png"
-                alt="アーバンデータチャレンジ 2025 土木学会賞"
-                width={1150}
-                height={682}
-                className="h-24 w-auto"
-              />
-            </motion.div>
           </div>
 
-          {/* Right: hero screenshot — large, dramatic */}
+          {/* 6. スクリーンショット */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.4, ease: "easeOut" }}
             className="relative md:-mr-10 lg:-mr-16"
           >
-            {/* Screenshot */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
@@ -164,19 +167,18 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ---- Scroll indicator ---- */}
+      {/* 7. Scroll indicator (icon only) */}
       <motion.div
-        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1.5 text-slate-600"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-500/65"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 1 }}
       >
-        <span className="text-xs tracking-[0.2em] uppercase">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
         >
-          <ChevronDown className="h-5 w-5" />
+          <ChevronDown className="h-6 w-6" />
         </motion.div>
       </motion.div>
     </section>
