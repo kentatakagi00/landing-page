@@ -123,12 +123,13 @@ export default function Features() {
                 </div>
 
                 {/* Screenshot */}
-                <div className="relative aspect-video overflow-hidden rounded-lg">
+                <div className="overflow-hidden rounded-lg">
                   <Image
                     src={feature.imageSrc}
                     alt={`${feature.title}の画面`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    width={851}
+                    height={479}
+                    className="h-auto w-full transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
@@ -171,39 +172,18 @@ export default function Features() {
             </div>
 
             {/* Full-width screenshot */}
-            <div className="group relative aspect-video overflow-hidden">
+            <div className="overflow-hidden">
               <Image
                 src="/images/feature-5.png"
                 alt="評価レポート生成の画面"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                width={851}
+                height={479}
+                className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.02]"
                 sizes="(max-width: 768px) 100vw, 1280px"
               />
             </div>
           </motion.div>
         </div>
-
-        {/* Sub-CTA */}
-        <motion.div
-          className="mt-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="mx-auto max-w-xl rounded-2xl border border-white/[0.08] bg-white/[0.03] px-8 py-10 backdrop-blur-sm">
-            <p className="mb-6 text-base text-slate-300 md:text-lg">
-              VP&nbsp;Studioについて詳しく知りたい方はこちら
-            </p>
-            <a
-              href="mailto:soramo.vp@gmail.com"
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-500 px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_30px_rgba(99,102,241,0.35)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_50px_rgba(99,102,241,0.55)]"
-            >
-              お問い合わせ
-              <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-        </motion.div>
 
       </div>
     </section>
