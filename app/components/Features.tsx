@@ -8,7 +8,6 @@ import {
   Navigation,
   Activity,
   FileText,
-  ArrowRight,
   type LucideIcon,
 } from "lucide-react";
 
@@ -230,30 +229,6 @@ export default function Features() {
           </motion.div>
         </div>
       </div>
-
-      {/* ---- Sub-CTA ---- */}
-      <motion.div
-        className="py-16"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="mx-auto max-w-xl px-6 text-center">
-          <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] px-8 py-10 backdrop-blur-sm">
-            <p className="mb-6 text-base text-slate-300 md:text-lg">
-              VP&nbsp;Studioについて詳しく知りたい方はこちら
-            </p>
-            <a
-              href="mailto:soramo.vp@gmail.com"
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_30px_rgba(52,211,153,0.35)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_50px_rgba(52,211,153,0.55)]"
-            >
-              お問い合わせ
-              <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-        </div>
-      </motion.div>
 
     </section>
   );

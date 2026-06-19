@@ -24,23 +24,6 @@ export default function Footer() {
             />
           </div>
 
-          {/* Links */}
-          <div className="flex items-center gap-6 text-xs text-slate-500">
-            <a
-              href="/privacy"
-              className="transition-colors hover:text-slate-300"
-            >
-              プライバシーポリシー
-            </a>
-            <a
-              href="#"
-              aria-label="SORAMO on X (Twitter)"
-              className="transition-colors hover:text-slate-300"
-            >
-              X / Twitter
-            </a>
-          </div>
-
           <p className="text-xs text-slate-600">
             © {new Date().getFullYear()} SORAMO. All rights reserved.
           </p>

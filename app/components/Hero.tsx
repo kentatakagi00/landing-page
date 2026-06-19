@@ -59,7 +59,7 @@ export default function Hero() {
 
             {/* by SORAMO credit */}
             <motion.div
-              className="mb-8 flex items-center justify-center gap-1.5 md:justify-start"
+              className="mb-8 flex w-[min(88vw,32rem)] items-center justify-end gap-1.5 md:w-[min(44vw,32rem)]"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
