@@ -6,11 +6,11 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { href: "#challenges", label: "課題" },
-  { href: "#features",   label: "機能" },
-  { href: "#report",     label: "レポート" },
-  { href: "#contact",    label: "お問い合わせ" },
-  { href: "#project",    label: "プロジェクト" },
+  { href: "#challenges",   label: "課題" },
+  { href: "#features",     label: "機能" },
+  { href: "#achievements", label: "実績" },
+  { href: "#contact",      label: "お問い合わせ" },
+  { href: "#project",      label: "プロジェクト" },
 ];
 
 export default function Navbar() {
