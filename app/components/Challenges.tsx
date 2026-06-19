@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { MapPin, AlertTriangle, Route, Volume2, type LucideIcon } from "lucide-react";
+import { MapPin, AlertTriangle, Navigation, Volume2, type LucideIcon } from "lucide-react";
 
 type Challenge = {
   icon: LucideIcon;
@@ -17,44 +17,44 @@ const challenges: Challenge[] = [
   {
     icon: MapPin,
     title: "用地選定",
-    description: "条件に沿った適切な土地・屋上の選定が難しい",
-    iconColor: "text-emerald-400",
-    iconBg: "bg-emerald-400/10",
-    border: "border-emerald-400/20",
-    glow: "hover:shadow-[0_0_24px_rgba(52,211,153,0.2)]",
+    description: "バーティポート整備指針に沿った土地・屋上の選定条件が複雑で、候補地の絞り込みに多大な時間がかかる",
+    iconColor: "text-blue-400",
+    iconBg: "bg-blue-400/10",
+    border: "border-blue-400/20",
+    glow: "hover:shadow-[0_0_28px_rgba(96,165,250,0.2)]",
   },
   {
     icon: AlertTriangle,
     title: "障害物チェック",
-    description: "用地周辺の障害物との安全な離着陸経路の確保",
-    iconColor: "text-emerald-300",
-    iconBg: "bg-emerald-500/10",
-    border: "border-emerald-500/20",
-    glow: "hover:shadow-[0_0_24px_rgba(16,185,129,0.2)]",
+    description: "用地周辺の建物・構造物との安全な離着陸経路の確保。進入表面への干渉チェックに専門知識が必要",
+    iconColor: "text-violet-400",
+    iconBg: "bg-violet-400/10",
+    border: "border-violet-400/20",
+    glow: "hover:shadow-[0_0_28px_rgba(167,139,250,0.2)]",
   },
   {
-    icon: Route,
+    icon: Navigation,
     title: "経路作成",
-    description: "目的地までの最適な飛行経路の設計",
-    iconColor: "text-cyan-400",
-    iconBg: "bg-cyan-500/10",
-    border: "border-cyan-500/20",
-    glow: "hover:shadow-[0_0_24px_rgba(34,211,238,0.2)]",
+    description: "目的地までの最適な飛行経路の設計。障害物回避と飛行距離の最短化を同時に満たす経路の算出が難しい",
+    iconColor: "text-indigo-400",
+    iconBg: "bg-indigo-400/10",
+    border: "border-indigo-400/20",
+    glow: "hover:shadow-[0_0_28px_rgba(129,140,248,0.2)]",
   },
   {
     icon: Volume2,
     title: "騒音チェック",
-    description: "経路上での騒音影響の事前評価",
-    iconColor: "text-emerald-400",
-    iconBg: "bg-emerald-500/10",
-    border: "border-emerald-500/20",
-    glow: "hover:shadow-[0_0_24px_rgba(52,211,153,0.2)]",
+    description: "経路上での騒音影響の事前評価。周辺住民への影響を数値で示した合意形成資料の作成に手間がかかる",
+    iconColor: "text-purple-400",
+    iconBg: "bg-purple-400/10",
+    border: "border-purple-400/20",
+    glow: "hover:shadow-[0_0_28px_rgba(192,132,252,0.2)]",
   },
 ];
 
 export default function Challenges() {
   return (
-    <section id="challenges" className="bg-[#0f0f1a] py-24">
+    <section id="challenges" className="bg-[#0f0f1a] py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
         {/* Section heading */}
         <motion.div
@@ -75,23 +75,23 @@ export default function Challenges() {
           </h2>
         </motion.div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Cards — 2×2 grid */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {challenges.map((item, index) => {
             const Icon = item.icon;
             return (
               <motion.div
                 key={item.title}
-                className={`rounded-2xl border ${item.border} bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 ${item.glow}`}
+                className={`rounded-2xl border ${item.border} bg-white/[0.04] p-8 backdrop-blur-sm transition-all duration-300 ${item.glow} hover:bg-white/[0.06]`}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className={`mb-4 w-fit rounded-xl ${item.iconBg} p-3`}>
-                  <Icon className={`h-6 w-6 ${item.iconColor}`} />
+                <div className={`mb-5 w-fit rounded-xl ${item.iconBg} p-3`}>
+                  <Icon className={`h-7 w-7 ${item.iconColor}`} />
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-white">{item.title}</h3>
+                <h3 className="mb-3 text-xl font-semibold text-white">{item.title}</h3>
                 <p className="text-sm leading-relaxed text-slate-400">{item.description}</p>
               </motion.div>
             );
