@@ -54,7 +54,7 @@ const challenges: Challenge[] = [
 
 export default function Challenges() {
   return (
-    <section id="challenges" className="bg-[#0a0a0f] py-24">
+    <section id="challenges" className="bg-[#0f0f1a] py-24">
       <div className="mx-auto max-w-7xl px-6">
         {/* Section heading */}
         <motion.div
@@ -97,6 +97,19 @@ export default function Challenges() {
             );
           })}
         </div>
+
+        {/* Bridge to features */}
+        <motion.p
+          className="mt-16 text-center text-xl font-semibold md:text-2xl"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
+            これら4つの課題に、VP&nbsp;Studioが一気通貫で答えます。
+          </span>
+        </motion.p>
       </div>
     </section>
   );
