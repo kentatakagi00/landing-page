@@ -40,7 +40,7 @@ export default function Hero() {
           {/* Left: text */}
           <div className="text-center md:text-left">
             <motion.div
-              className="mb-10 flex justify-center md:justify-start"
+              className="mb-4 flex justify-center md:justify-start"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
@@ -55,6 +55,23 @@ export default function Hero() {
                   priority
                 />
               </div>
+            </motion.div>
+
+            {/* by SORAMO credit */}
+            <motion.div
+              className="mb-8 flex items-center justify-center gap-1.5 md:justify-start"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <span className="text-sm text-slate-500">by</span>
+              <Image
+                src="/images/logo-soramo.png"
+                alt="SORAMO"
+                width={1224}
+                height={226}
+                className="h-4 w-auto opacity-60"
+              />
             </motion.div>
 
             <motion.p
@@ -132,9 +149,8 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              className="relative overflow-hidden rounded-2xl shadow-[0_40px_80px_rgba(0,0,0,0.7)] md:ml-auto md:w-[125%]"
+              className="relative overflow-hidden rounded-2xl md:ml-auto md:w-[125%]"
             >
-              <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-br from-white/[0.05] to-transparent" />
               <Image
                 src="/images/hero-screenshot.png"
                 alt="VP Studio アプリ画面"
