@@ -7,8 +7,8 @@ import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "#challenges", label: "課題" },
-  { href: "#features",   label: "機能1" },
-  { href: "#report",     label: "機能2" },
+  { href: "#features",   label: "機能" },
+  { href: "#report",     label: "レポート" },
   { href: "#contact",    label: "お問い合わせ" },
   { href: "#project",    label: "プロジェクト" },
 ];
