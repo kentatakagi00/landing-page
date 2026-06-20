@@ -107,7 +107,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.25, ease: "easeInOut" }}
+                transition={{ duration: 0.1, ease: "easeInOut" }}
                 className="overflow-hidden md:hidden"
               >
                 <div className="flex flex-col gap-1 border-t border-white/[0.08] pt-3 pb-2">

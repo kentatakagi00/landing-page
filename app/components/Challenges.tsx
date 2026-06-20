@@ -86,7 +86,7 @@ export default function Challenges() {
                 initial={{ opacity: 0, scale: 0.92 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.45, delay: index * 0.07, type: "tween", ease: [0.25, 0.46, 0.45, 0.94] }}
+                transition={{ duration: 0.1, delay: index * 0.07, type: "tween", ease: [0.25, 0.46, 0.45, 0.94] }}
                 style={{ willChange: "transform, opacity" }}
               >
                 <div className={`mb-5 w-fit rounded-xl ${item.iconBg} p-3`}>
