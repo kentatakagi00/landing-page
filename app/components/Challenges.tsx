@@ -67,7 +67,7 @@ export default function Challenges() {
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-rose-500/30 bg-rose-500/10 px-4 py-1.5 text-sm text-rose-400">
             課題
           </div>
-          <h2 className="text-4xl font-bold text-white md:text-5xl">
+          <h2 className="text-4xl font-bold leading-snug text-white md:text-5xl">
             Vertiport整備が抱える
             <span className="block bg-gradient-to-r from-rose-400 to-orange-400 bg-clip-text text-transparent">
               4つの課題

@@ -18,7 +18,7 @@ export default function Achievements() {
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm text-blue-300">
             実績
           </div>
-          <h2 className="text-4xl font-bold text-white md:text-5xl">
+          <h2 className="text-4xl font-bold leading-snug text-white md:text-5xl">
             受賞・実績
           </h2>
         </motion.div>

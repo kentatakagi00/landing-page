@@ -71,7 +71,7 @@ export default function Project() {
             />
           </div>
 
-          <h2 className="text-4xl font-bold text-white md:text-5xl">
+          <h2 className="text-4xl font-bold leading-snug text-white md:text-5xl">
             デジタル技術で
             <span className="block bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
               ドローン/eVTOLの普及を支えます。

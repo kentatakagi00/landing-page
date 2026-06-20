@@ -87,7 +87,7 @@ export default function Features() {
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-sm text-blue-300">
             機能
           </div>
-          <h2 className="text-4xl font-bold text-white md:text-5xl">
+          <h2 className="text-4xl font-bold leading-snug text-white md:text-5xl">
             5つの機能で、選定からレポートまで
             <span className="block bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
               一気通貫
