@@ -83,8 +83,8 @@ export default function Challenges() {
               <motion.div
                 key={item.title}
                 className={`rounded-2xl border ${item.border} bg-white/[0.04] p-8 backdrop-blur-sm transition-all duration-300 ${item.glow} hover:bg-white/[0.06]`}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.92 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.45, delay: index * 0.07, type: "tween", ease: [0.25, 0.46, 0.45, 0.94] }}
                 style={{ willChange: "transform, opacity" }}

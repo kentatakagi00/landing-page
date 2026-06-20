@@ -87,10 +87,11 @@ export default function Project() {
               <motion.div
                 key={s.title}
                 className={`rounded-2xl border ${s.border} bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 ${s.glow} hover:bg-white/[0.07]`}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                initial={{ opacity: 0, scale: 0.92 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.45, delay: i * 0.07, type: "tween", ease: [0.25, 0.46, 0.45, 0.94] }}
+                style={{ willChange: "transform, opacity" }}
               >
                 <div className={`mb-4 w-fit rounded-xl ${s.iconBg} p-3`}>
                   <Icon className={`h-6 w-6 ${s.iconColor}`} />
@@ -104,10 +105,11 @@ export default function Project() {
         {/* Project details */}
         <motion.div
           className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-sm"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          initial={{ opacity: 0, scale: 0.92 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.45, delay: 0.1, type: "tween", ease: [0.25, 0.46, 0.45, 0.94] }}
+          style={{ willChange: "transform, opacity" }}
         >
           <dl>
             {details.map((d, i) => (

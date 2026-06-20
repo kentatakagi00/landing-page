@@ -103,8 +103,8 @@ export default function Features() {
               <motion.div
                 key={feature.title}
                 className={`group rounded-2xl border ${feature.border} bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 md:hover:-translate-y-1 hover:bg-white/[0.07] ${feature.glow}`}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.92 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.45, delay: index * 0.07, type: "tween", ease: [0.25, 0.46, 0.45, 0.94] }}
                 style={{ willChange: "transform, opacity" }}
@@ -142,8 +142,8 @@ export default function Features() {
           <motion.div
             id="report"
             className="scroll-mt-24 overflow-hidden rounded-2xl border border-white/[0.1] bg-white/[0.04] backdrop-blur-sm transition-all duration-300 md:hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(99,102,241,0.12)] sm:col-span-2"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.92 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.45, delay: 0.1, type: "tween", ease: [0.25, 0.46, 0.45, 0.94] }}
             style={{ willChange: "transform, opacity" }}
