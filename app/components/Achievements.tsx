@@ -26,10 +26,11 @@ export default function Achievements() {
         {/* Award badge images */}
         <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-center sm:gap-12">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.45, delay: 0.1, type: "tween", ease: [0.25, 0.46, 0.45, 0.94] }}
+            style={{ willChange: "transform, opacity" }}
           >
             <Image
               src="/images/award-1.png"
@@ -40,10 +41,11 @@ export default function Achievements() {
             />
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.45, delay: 0.2, type: "tween", ease: [0.25, 0.46, 0.45, 0.94] }}
+            style={{ willChange: "transform, opacity" }}
           >
             <Image
               src="/images/award-2.png"

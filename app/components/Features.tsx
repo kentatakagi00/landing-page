@@ -102,11 +102,12 @@ export default function Features() {
             return (
               <motion.div
                 key={feature.title}
-                className={`group rounded-2xl border ${feature.border} bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.07] ${feature.glow}`}
-                initial={{ opacity: 0, y: 40 }}
+                className={`group rounded-2xl border ${feature.border} bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 md:hover:-translate-y-1 hover:bg-white/[0.07] ${feature.glow}`}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.45, delay: index * 0.07, type: "tween", ease: [0.25, 0.46, 0.45, 0.94] }}
+                style={{ willChange: "transform, opacity" }}
               >
                 {/* Header */}
                 <div className="mb-5">
@@ -140,11 +141,12 @@ export default function Features() {
           {/* Feature 05: wide card (col-span-2) */}
           <motion.div
             id="report"
-            className="scroll-mt-24 overflow-hidden rounded-2xl border border-white/[0.1] bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(99,102,241,0.12)] sm:col-span-2"
-            initial={{ opacity: 0, y: 40 }}
+            className="scroll-mt-24 overflow-hidden rounded-2xl border border-white/[0.1] bg-white/[0.04] backdrop-blur-sm transition-all duration-300 md:hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(99,102,241,0.12)] sm:col-span-2"
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.45, delay: 0.1, type: "tween", ease: [0.25, 0.46, 0.45, 0.94] }}
+            style={{ willChange: "transform, opacity" }}
           >
             {/* Card header */}
             <div className="p-6 md:p-8">
