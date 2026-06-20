@@ -28,7 +28,7 @@ export default function CTA() {
           </div>
 
           <h2 className="mb-10 text-4xl font-bold leading-snug text-white md:text-5xl">
-            Vertiport整備計画、
+            Vertiport整備計画や
             <br />
             周辺住民との合意形成に
             <span className="block bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">

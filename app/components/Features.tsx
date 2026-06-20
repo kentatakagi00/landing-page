@@ -158,9 +158,6 @@ export default function Features() {
               </div>
               <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                 <div>
-                  <p className="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-400/70">
-                    STEP 5
-                  </p>
                   <h3 className="text-2xl font-bold text-white md:text-3xl">
                     すべての結果を評価レポートに集約
                   </h3>
