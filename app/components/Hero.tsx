@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 const TARGET_BADGES = [
   "運航事業者",
@@ -11,6 +12,8 @@ const TARGET_BADGES = [
 ];
 
 export default function Hero() {
+  const [videoReady, setVideoReady] = useState(false);
+
   return (
     <section id="top" className="relative flex min-h-screen items-center overflow-hidden bg-[#0a0a0f]">
       {/* ---- Background video ---- */}
@@ -19,7 +22,9 @@ export default function Hero() {
         muted
         loop
         playsInline
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+        poster="/movie/poster.jpg"
+        onCanPlay={() => setVideoReady(true)}
+        className={`pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${videoReady ? "opacity-100" : "opacity-0"}`}
         src="/movie/movie.mp4"
       />
 

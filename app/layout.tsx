@@ -7,10 +7,10 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vpstudio.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "SORAMO VP Studio | バーティポート選定・評価レポート支援",
+  title: "VP Studio | バーティポート選定・評価レポート支援",
   description:
-    "SORAMO VP Studioは、空飛ぶクルマのバーティポート候補地を迅速に選定し、評価レポートを作成するWebアプリです。用地選定・安全評価・経路生成・騒音評価を一気通貫で支援します。",
-  applicationName: "SORAMO VP Studio",
+    "VP Studioは、空飛ぶクルマのバーティポート候補地を迅速に選定し、評価レポートを作成するWebアプリです。用地選定・安全評価・経路生成・騒音評価を一気通貫で支援します。",
+  applicationName: "VP Studio",
   keywords: [
     "SORAMO",
     "VP Studio",
@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/" },
   openGraph: {
-    title: "SORAMO VP Studio | バーティポート選定・評価レポート支援",
+    title: "VP Studio | バーティポート選定・評価レポート支援",
     description:
-      "SORAMO VP Studioは、空飛ぶクルマのバーティポート候補地を迅速に選定し、評価レポートを作成するWebアプリです。",
+      "VP Studioは、空飛ぶクルマのバーティポート候補地を迅速に選定し、評価レポートを作成するWebアプリです。",
     url: "/",
-    siteName: "SORAMO VP Studio",
+    siteName: "VP Studio",
     locale: "ja_JP",
     type: "website",
     images: [
@@ -35,15 +35,15 @@ export const metadata: Metadata = {
         url: "/images/hero-screenshot.png",
         width: 2304,
         height: 1296,
-        alt: "SORAMO VP Studioの画面イメージ",
+        alt: "VP Studioの画面イメージ",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SORAMO VP Studio | バーティポート選定・評価レポート支援",
+    title: "VP Studio | バーティポート選定・評価レポート支援",
     description:
-      "SORAMO VP Studioは、バーティポート候補地の選定と評価レポート作成を支援するWebアプリです。",
+      "VP Studioは、バーティポート候補地の選定と評価レポート作成を支援するWebアプリです。",
     images: ["/images/hero-screenshot.png"],
   },
   robots: {
