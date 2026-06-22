@@ -82,7 +82,7 @@ export default function Challenges() {
             return (
               <motion.div
                 key={item.title}
-                className={`rounded-2xl border ${item.border} bg-white/[0.04] p-8 transition-all duration-300 ${item.glow} hover:bg-white/[0.06]`}
+                className={`rounded-2xl border ${item.border} bg-white/[0.04] p-8 transition-[background-color,box-shadow] duration-300 ${item.glow} hover:bg-white/[0.06]`}
                 initial={{ opacity: 0, scale: 0.92 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-40px" }}
