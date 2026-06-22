@@ -86,7 +86,7 @@ export default function Project() {
             return (
               <motion.div
                 key={s.title}
-                className={`rounded-2xl border ${s.border} bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 ${s.glow} hover:bg-white/[0.07]`}
+                className={`rounded-2xl border ${s.border} bg-white/[0.04] p-6 transition-all duration-300 ${s.glow} hover:bg-white/[0.07]`}
                 initial={{ opacity: 0, scale: 0.92 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-40px" }}
@@ -104,7 +104,7 @@ export default function Project() {
 
         {/* Project details */}
         <motion.div
-          className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.04] backdrop-blur-sm"
+          className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.04]"
           initial={{ opacity: 0, scale: 0.92 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-40px" }}
