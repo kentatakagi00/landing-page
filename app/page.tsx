@@ -6,9 +6,12 @@ import Achievements from "./components/Achievements";
 import CTA from "./components/CTA";
 import Project from "./components/Project";
 import Footer from "./components/Footer";
+import { getAllNews } from "@/lib/news";
 
 export default function Home() {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vpstudio.app";
+  const posts = getAllNews();
+  const latestNews = posts[0] ? { slug: posts[0].slug, title: posts[0].title } : undefined;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -39,7 +42,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Navbar />
-      <Hero />
+      <Hero latestNews={latestNews} />
       <Challenges />
       <Features />
       <Achievements />

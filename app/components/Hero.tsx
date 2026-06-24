@@ -3,7 +3,9 @@
 import { motion } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
+import { ChevronRight } from "@/app/components/icons/MaterialChevron";
 
 const TARGET_BADGES = [
   "運航事業者",
@@ -11,7 +13,16 @@ const TARGET_BADGES = [
   "建設・不動産事業者",
 ];
 
-export default function Hero() {
+interface LatestNews {
+  slug: string;
+  title: string;
+}
+
+interface HeroProps {
+  latestNews?: LatestNews;
+}
+
+export default function Hero({ latestNews }: HeroProps) {
   const [videoReady, setVideoReady] = useState(false);
 
   return (
@@ -133,6 +144,7 @@ export default function Hero() {
           </motion.div>
 
           {/* 6. CTAボタン */}
+          {/*
           <motion.div
             className="flex flex-row flex-wrap items-center justify-center gap-3 md:justify-start"
             initial={{ opacity: 0, y: 20 }}
@@ -152,6 +164,30 @@ export default function Hero() {
               機能を見る
             </a>
           </motion.div>
+          */}
+
+          {/* 7. 最新ニュースリンク */}
+          {latestNews && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.72 }}
+              className="mt-2"
+            >
+              <Link
+                href={`/news/${latestNews.slug}`}
+                className="group inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm backdrop-blur-sm transition-[background-color,border-color] duration-300 hover:border-white/20 hover:bg-white/10"
+              >
+                <span className="rounded-md bg-gradient-to-r from-blue-600 to-indigo-500 px-1.5 py-0.5 text-[10px] font-bold tracking-wide text-white">
+                  NEW
+                </span>
+                <span className="text-slate-300 transition-colors duration-200 group-hover:text-blue-300">
+                  {latestNews.title}
+                </span>
+                <ChevronRight size={16} className="text-slate-500" />
+              </Link>
+            </motion.div>
+          )}
         </div>
       </div>
 

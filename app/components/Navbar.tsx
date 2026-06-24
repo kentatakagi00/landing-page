@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
-const NAV_LINKS = [
+const ANCHOR_LINKS = [
   { href: "#challenges",   label: "課題" },
   { href: "#features",     label: "機能" },
   { href: "#achievements", label: "実績" },
@@ -16,11 +18,12 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(false);
+  const pathname = usePathname();
+  const isNewsActive = pathname.startsWith("/news");
 
   useEffect(() => {
     const updateHeaderVisibility = () => {
-      const challenges = document.getElementById("challenges");
-      const threshold = challenges ? Math.max(0, challenges.offsetTop - 180) : window.innerHeight * 0.85;
+      const threshold = window.innerHeight * 0.5;
       const shouldShow = window.scrollY >= threshold;
 
       setShowHeader(shouldShow);
@@ -51,7 +54,6 @@ export default function Navbar() {
           <div className="flex items-center justify-between py-3">
             {/* ---- Logos ---- */}
             <a href="#top" className="flex min-w-0 shrink-0 items-center gap-3" aria-label="トップへ戻る">
-              {/* VP Studio ロゴ */}
               <Image
                 src="/images/logo-vpstudio.png"
                 alt="VP Studio"
@@ -61,7 +63,6 @@ export default function Navbar() {
                 priority
               />
               <span className="h-5 w-px shrink-0 bg-white/20" aria-hidden="true" />
-              {/* SORAMO ロゴ */}
               <div className="hidden shrink-0 items-center gap-1.5 sm:flex">
                 <span className="text-xs text-slate-500">by</span>
                 <Image
@@ -76,7 +77,7 @@ export default function Navbar() {
 
             {/* Desktop nav links */}
             <nav className="hidden items-center gap-8 md:flex">
-              {NAV_LINKS.map((link) => (
+              {ANCHOR_LINKS.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
@@ -85,6 +86,14 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <Link
+                href="/news"
+                className={`text-sm transition-colors hover:text-white ${
+                  isNewsActive ? "text-blue-400" : "text-slate-400"
+                }`}
+              >
+                News
+              </Link>
             </nav>
 
             {/* Hamburger (mobile) */}
@@ -111,7 +120,7 @@ export default function Navbar() {
                 className="overflow-hidden md:hidden"
               >
                 <div className="flex flex-col gap-1 border-t border-white/[0.08] pt-3 pb-2">
-                  {NAV_LINKS.map((link) => (
+                  {ANCHOR_LINKS.map((link) => (
                     <a
                       key={link.href}
                       href={link.href}
@@ -121,6 +130,15 @@ export default function Navbar() {
                       {link.label}
                     </a>
                   ))}
+                  <Link
+                    href="/news"
+                    onClick={() => setMenuOpen(false)}
+                    className={`rounded-lg px-3 py-2 text-sm transition-colors hover:bg-white/10 hover:text-white ${
+                      isNewsActive ? "text-blue-400" : "text-slate-300"
+                    }`}
+                  >
+                    News
+                  </Link>
                 </div>
               </motion.nav>
             )}
